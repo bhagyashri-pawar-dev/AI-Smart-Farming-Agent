@@ -1,0 +1,20 @@
+{
+  "name": "cropadvise",
+  "version": "1.0.0",
+  "description": "AI-powered Crop Advisory Agent — Frontend + Backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["agriculture", "AI", "crop", "advisory", "watson", "IBM"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>CropAdvise — AI Agent Chat</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; width: 100%; overflow: hidden; background: #f0fdf4; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      display: flex; flex-direction: column;
+    }
+
+    /* header bar shown when loaded in iframe */
+    .chat-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 16px; height: 52px; flex-shrink: 0;
+      background: #15803d;
+    }
+    .chat-header-brand {
+      display: flex; align-items: center; gap: 8px;
+      font-weight: 700; font-size: 15px; color: #fff;
+    }
+    .chat-header-brand span { font-size: 20px; }
+    .chat-header-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: .5px;
+      background: rgba(255,255,255,.2); color: #d1fae5;
+      padding: 2px 8px; border-radius: 99px; text-transform: uppercase;
+    }
+    .chat-header-actions { display: flex; gap: 8px; }
+    .chat-header-actions button {
+      background: rgba(255,255,255,.15); border: none; color: #fff;
+      width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
+      font-size: 14px; display: flex; align-items: center; justify-content: center;
+      transition: background .15s;
+    }
+    .chat-header-actions button:hover { background: rgba(255,255,255,.3); }
+
+    /* the wxo widget fills the rest */
+    #root {
+      flex: 1; width: 100%; overflow: hidden;
+      position: relative;
+    }
+
+    /* hide header when running standalone (not in iframe) */
+    body.standalone .chat-header { display: none; }
+  </style>
+</head>
+<body>
+  <div class="chat-header">
+    <div class="chat-header-brand">
+      <span>🌾</span> CropAdvise Agent
+      <span class="chat-header-badge">AI</span>
+    </div>
+    <div class="chat-header-actions">
+      <button onclick="window.parent.postMessage('cropadvise:minimize','*')" title="Minimize">—</button>
+      <button onclick="window.parent.postMessage('cropadvise:close','*')" title="Close">✕</button>
+    </div>
+  </div>
+
+  <div id="root"></div>
+
+  <script>
+    // Detect if running inside an iframe
+    if (window.self === window.top) {
+      document.body.classList.add('standalone');
+    }
+
+    window.wxOConfiguration = {
+      orchestrationID: "undefined",
+      hostURL: "https://au-syd.watson-orchestrate.cloud.ibm.com",
+      rootElementID: "root",
+      deploymentPlatform: "ibmcloud",
+      crn: "crn:v1:bluemix:public:watsonx-orchestrate:au-syd:a/0803cb2c7ea74bc1ba999bacd548f203:8333548a-fa01-4c7e-9f7e-3e0e9ef1387b::",
+      chatOptions: {
+        agentId: "593ac771-7b42-4b2e-a00a-fa360476d9ac"
+      }
+    };
+
+    setTimeout(function () {
+      var s = document.createElement('script');
+      s.src = window.wxOConfiguration.hostURL + '/wxochat/wxoLoader.js?embed=true';
+      s.addEventListener('load', function () { wxoLoader.init(); });
+      document.head.appendChild(s);
+    }, 0);
+  </script>
+</body>
+</html>

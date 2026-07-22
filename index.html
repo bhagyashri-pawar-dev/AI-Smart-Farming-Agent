@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CropAdvise — AI Crop Advisory Agent</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <span class="brand-icon">🌾</span>
+        <span class="brand-name">CropAdvise</span>
+        <span class="brand-tag">AI</span>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#crops">Crops</a>
+        <a href="#about">About</a>
+        <a href="#" class="btn-nav" id="openChatBtn">Ask the Agent</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-bg"><div class="hero-overlay"></div></div>
+    <div class="hero-content">
+      <div class="hero-badge">🤖 Powered by CropAdvise AI Engine</div>
+      <h1 class="hero-title">
+        Smarter Farming<br/>Starts With <span class="highlight">AI Advice</span>
+      </h1>
+      <p class="hero-subtitle">
+        Get real-time, personalized crop recommendations — from soil health to
+        pest management — powered by an intelligent advisory agent built for every farmer.
+      </p>
+      <div class="hero-cta">
+        <button class="btn-primary" id="heroChatBtn">
+          <span>💬</span> Chat with AI Agent
+        </button>
+        <a href="#features" class="btn-outline">Explore Features</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Crop Types</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">AI Support</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">98%</span><span class="stat-label">Accuracy</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="agent-card" id="heroAgentCard">
+        <div class="agent-header">
+          <div class="agent-avatar">🌱</div>
+          <div>
+            <div class="agent-name">CropAdvise Agent</div>
+            <div class="agent-status"><span class="dot-green"></span> Online &amp; Ready</div>
+          </div>
+        </div>
+        <div class="agent-messages">
+          <div class="msg-agent"><span>Hello! I'm your AI crop advisor. Ask me anything about farming!</span></div>
+          <div class="msg-suggestions">
+            <button class="chip" onclick="openChat('How to grow wheat?')">🌾 Wheat guide</button>
+            <button class="chip" onclick="openChat('Aphid control')">🪲 Pest control</button>
+            <button class="chip" onclick="openChat('Drip irrigation tips')">💧 Irrigation</button>
+            <button class="chip" onclick="openChat('Nitrogen deficiency signs')">🧪 Soil health</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURES ═══ -->
+  <section class="features" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">What We Offer</span>
+        <h2>AI-Powered Agricultural Intelligence</h2>
+        <p>From seed selection to harvest, our agent guides every step of your farming journey.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" onclick="openChat('Best crop for loamy soil in kharif season')">
+          <div class="feature-icon" style="background:#e8f5e9;">🌱</div>
+          <h3>Crop Selection</h3>
+          <p>Best crops for your soil type, climate zone, and season with expected yields.</p>
+        </div>
+        <div class="feature-card" onclick="openChat('Tell me about loamy soil')">
+          <div class="feature-icon" style="background:#fff3e0;">🧪</div>
+          <h3>Soil Analysis</h3>
+          <p>NPK ratios, pH levels, and targeted fertilization strategies for any soil.</p>
+        </div>
+        <div class="feature-card" onclick="openChat('Tell me about drip irrigation')">
+          <div class="feature-icon" style="background:#e3f2fd;">💧</div>
+          <h3>Irrigation Planning</h3>
+          <p>Drip, sprinkler, flood, or furrow — the right method for every crop.</p>
+        </div>
+        <div class="feature-card" onclick="openChat('How to control fall armyworm on corn')">
+          <div class="feature-icon" style="background:#fce4ec;">🪲</div>
+          <h3>Pest &amp; Disease Control</h3>
+          <p>Identify threats early and get treatment plans with specific pesticide doses.</p>
+        </div>
+        <div class="feature-card" onclick="openChat('Kharif season crops')">
+          <div class="feature-icon" style="background:#f3e5f5;">📅</div>
+          <h3>Seasonal Calendar</h3>
+          <p>Kharif, Rabi, and Zaid crop calendars with sowing windows and climate tips.</p>
+        </div>
+        <div class="feature-card" onclick="openChat('Rice yield per hectare')">
+          <div class="feature-icon" style="background:#e0f7fa;">📈</div>
+          <h3>Yield Forecasting</h3>
+          <p>Realistic yield ranges per hectare with the inputs needed to achieve them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CROPS MARQUEE ═══ -->
+  <section class="crops-strip" id="crops">
+    <div class="strip-label">Supported Crops</div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <span>🌽 Corn</span><span>🌾 Wheat</span><span>🍚 Rice</span>
+        <span>🫘 Soybean</span><span>🥔 Potato</span><span>🍅 Tomato</span>
+        <span>🧅 Onion</span><span>🌻 Sunflower</span><span>🎋 Sugarcane</span>
+        <span>🌿 Cotton</span><span>🥭 Mango</span><span>🍋 Citrus</span>
+        <span>🌽 Corn</span><span>🌾 Wheat</span><span>🍚 Rice</span>
+        <span>🫘 Soybean</span><span>🥔 Potato</span><span>🍅 Tomato</span>
+        <span>🧅 Onion</span><span>🌻 Sunflower</span><span>🎋 Sugarcane</span>
+        <span>🌿 Cotton</span><span>🥭 Mango</span><span>🍋 Citrus</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW IT WORKS ═══ -->
+  <section class="how-it-works" id="about">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Simple Steps</span>
+        <h2>How CropAdvise Works</h2>
+        <p>Three easy steps to transform your farming decisions with AI.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Describe Your Farm</h3>
+          <p>Tell the agent your crop, soil type, pest problem, or irrigation need.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>AI Analyzes Data</h3>
+          <p>The engine matches your query against a rich agricultural knowledge base instantly.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>Get Actionable Advice</h3>
+          <p>Receive detailed, step-by-step recommendations you can apply immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BANNER ═══ -->
+  <section class="cta-banner">
+    <div class="cta-content">
+      <h2>Ready to grow smarter?</h2>
+      <p>Start chatting with your AI crop advisor right now — free, instant, no sign-up needed.</p>
+      <button class="btn-primary large" onclick="openChat()">
+        🚀 Launch AI Agent Now
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="brand-icon">🌾</span>
+        <span class="brand-name">CropAdvise</span>
+        <p>Intelligent crop advisory powered by the CropAdvise AI Knowledge Engine.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Resources</h4>
+        <a href="#features">Features</a>
+        <a href="#crops">Supported Crops</a>
+        <a href="#about">How it Works</a>
+      </div>
+      <div class="footer-links">
+        <h4>Ask the Agent</h4>
+        <a href="#" onclick="openChat('How to grow rice?');return false;">Rice Guide</a>
+        <a href="#" onclick="openChat('Wheat pest control');return false;">Pest Control</a>
+        <a href="#" onclick="openChat('Drip irrigation tips');return false;">Irrigation</a>
+        <a href="#" onclick="openChat('Nitrogen deficiency signs');return false;">Soil &amp; Nutrients</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 CropAdvise AI. Agricultural Intelligence for Every Farmer.</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════
+       EMBEDDED AI CHAT PANEL
+       ═══════════════════════════════════════════════════ -->
+
+  <!-- FAB -->
+  <button class="chat-fab" id="chatFab" aria-label="Open AI Crop Advisor">
+    <span class="fab-ring"></span>
+    <span class="fab-icon" id="fabIcon">💬</span>
+    <span class="fab-label">Ask AI</span>
+  </button>
+
+  <!-- Chat Panel -->
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="CropAdvise AI Agent" aria-modal="true">
+
+    <!-- Header -->
+    <div class="cp-header">
+      <div class="cp-brand">
+        <div class="cp-avatar">🌱</div>
+        <div class="cp-title-block">
+          <div class="cp-name">CropAdvise AI Agent</div>
+          <div class="cp-status"><span class="cp-dot"></span><span id="cpStatusText">Online · AI Knowledge Engine</span></div>
+        </div>
+      </div>
+      <div class="cp-controls">
+        <button class="cp-btn" id="btnMinimize" title="Minimize" aria-label="Minimize">
+          <svg width="14" height="2" viewBox="0 0 14 2"><line x1="1" y1="1" x2="13" y2="1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="cp-btn" id="btnExpand" title="Expand" aria-label="Expand">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="11" height="11" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M8 1h4v4M5 12H1V8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="cp-btn cp-btn-close" id="btnClose" title="Close" aria-label="Close">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div class="cp-messages" id="cpMessages"></div>
+
+    <!-- Quick chips -->
+    <div class="cp-chips" id="cpChips">
+      <button class="cp-chip" data-q="How to grow wheat?">🌾 Wheat</button>
+      <button class="cp-chip" data-q="Aphid control on cotton">🪲 Aphids</button>
+      <button class="cp-chip" data-q="Drip irrigation guide">💧 Irrigation</button>
+      <button class="cp-chip" data-q="Nitrogen deficiency symptoms">🧪 Nutrients</button>
+      <button class="cp-chip" data-q="Clay soil crops">🪱 Clay soil</button>
+      <button class="cp-chip" data-q="Kharif season crops">📅 Kharif</button>
+      <button class="cp-chip" data-q="Late blight potato">🥔 Blight</button>
+      <button class="cp-chip" data-q="Rice yield per hectare">📈 Yield</button>
+    </div>
+
+    <!-- Input -->
+    <div class="cp-input-wrap">
+      <div class="cp-input-row">
+        <textarea id="cpInput" class="cp-input" placeholder="Ask about any crop, pest, soil or irrigation…" rows="1" aria-label="Message input"></textarea>
+        <button class="cp-send" id="cpSend" aria-label="Send">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M18 10L2 3l3.5 7L2 17l16-7z" fill="currentColor"/></svg>
+        </button>
+      </div>
+      <div class="cp-hint">Powered by CropAdvise AI · Ask anything about farming</div>
+    </div>
+  </div>
+
+  <!-- Backdrop -->
+  <div class="chat-backdrop" id="chatBackdrop"></div>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script src="js/cropAgent.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- IBM watsonx Orchestrate (optional — works only with valid IBM Cloud session) -->
+  <script>
+    window.wxOConfiguration = {
+      hostURL:            "https://au-syd.watson-orchestrate.cloud.ibm.com",
+      rootElementID:      "root",
+      deploymentPlatform: "ibmcloud",
+      crn:                "crn:v1:bluemix:public:watsonx-orchestrate:au-syd:a/0803cb2c7ea74bc1ba999bacd548f203:8333548a-fa01-4c7e-9f7e-3e0e9ef1387b::",
+      chatOptions: { agentId: "593ac771-7b42-4b2e-a00a-fa360476d9ac" }
+    };
+    setTimeout(function () {
+      var s = document.createElement('script');
+      s.src = window.wxOConfiguration.hostURL + '/wxochat/wxoLoader.js?embed=true';
+      s.addEventListener('load', function () {
+        try { wxoLoader.init(); } catch(e) {}
+      });
+      document.head.appendChild(s);
+    }, 0);
+  </script>
+  <div id="root"></div>
+
+</body>
+</html>
